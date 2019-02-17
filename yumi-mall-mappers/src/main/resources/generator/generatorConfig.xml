@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="jdbc.properties"/>
+    <!--MyBatis3 MyBatis3Simple-->
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 配置 tk.mybatis 插件 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.MyMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.yumi.mall.domain" targetProject="src\main\java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src\main\resources"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yumi.mall.mapper"
+                             targetProject="src\main\java"/>
+
+
+        <!--生成全部表tableName设为%-->
+        <table catalog="yumi-mall" tableName="%" enableSelectByExample="true" >
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

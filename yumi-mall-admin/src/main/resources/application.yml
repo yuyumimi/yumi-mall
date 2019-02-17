@@ -1,0 +1,17 @@
+#默认为开发环境
+spring:
+  profiles:
+    active: dev
+mybatis:
+  mapper-locations: classpath:dao/*.xml,classpath:mapper/*.xml
+logging:
+  level:
+    root: info
+    com.yumi.mall: debug
+  path: /var/logs
+  file: yumi-admin-logs
+jwt:
+  tokenHeader: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: Bearer
