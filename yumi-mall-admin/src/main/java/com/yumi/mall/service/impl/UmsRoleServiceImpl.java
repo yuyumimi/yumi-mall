@@ -7,6 +7,7 @@ import com.yumi.mall.mapper.UmsRolePermissionRelationMapper;
 import com.yumi.mall.service.UmsRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,6 +24,7 @@ public class UmsRoleServiceImpl implements UmsRoleService {
     private UmsRolePermissionRelationMapper rolePermissionRelationMapper;
     @Autowired
     private UmsRolePermissionRelationDao rolePermissionRelationDao;
+
     @Override
     public int create(UmsRole role) {
         role.setCreateTime(new Date());
@@ -40,8 +42,8 @@ public class UmsRoleServiceImpl implements UmsRoleService {
 
     @Override
     public int delete(List<Long> ids) {
-        UmsRoleExample example = new UmsRoleExample();
-        example.createCriteria().andIdIn(ids);
+        Example example = new Example(UmsRole.class);
+        example.createCriteria().andIn("id", ids);
         return roleMapper.deleteByExample(example);
     }
 
@@ -53,8 +55,8 @@ public class UmsRoleServiceImpl implements UmsRoleService {
     @Override
     public int updatePermission(Long roleId, List<Long> permissionIds) {
         //先删除原有关系
-        UmsRolePermissionRelationExample example=new UmsRolePermissionRelationExample();
-        example.createCriteria().andRoleIdEqualTo(roleId);
+        Example example = new Example(UmsRolePermissionRelation.class);
+        example.createCriteria().andEqualTo("roleId",roleId);
         rolePermissionRelationMapper.deleteByExample(example);
         //批量插入新关系
         List<UmsRolePermissionRelation> relationList = new ArrayList<>();
@@ -69,6 +71,7 @@ public class UmsRoleServiceImpl implements UmsRoleService {
 
     @Override
     public List<UmsRole> list() {
-        return roleMapper.selectByExample(new UmsRoleExample());
+        Example example = new Example(UmsRole.class);
+        return roleMapper.selectByExample(example);
     }
 }

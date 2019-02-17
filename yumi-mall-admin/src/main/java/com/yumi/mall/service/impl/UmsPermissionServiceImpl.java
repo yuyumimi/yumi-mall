@@ -1,13 +1,13 @@
 package com.yumi.mall.service.impl;
 
 import com.yumi.mall.domain.UmsPermission;
-import com.yumi.mall.domain.UmsPermissionExample;
 import com.yumi.mall.dto.UmsPermissionNode;
 import com.yumi.mall.mapper.UmsPermissionMapper;
 import com.yumi.mall.service.UmsPermissionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
 import java.util.List;
@@ -38,14 +38,15 @@ public class UmsPermissionServiceImpl implements UmsPermissionService {
 
     @Override
     public int delete(List<Long> ids) {
-        UmsPermissionExample example = new UmsPermissionExample();
-        example.createCriteria().andIdIn(ids);
+        Example example=new Example(UmsPermission.class);
+        example.createCriteria().andIn("id",ids);
         return permissionMapper.deleteByExample(example);
     }
 
     @Override
     public List<UmsPermissionNode> treeList() {
-        List<UmsPermission> permissionList = permissionMapper.selectByExample(new UmsPermissionExample());
+        Example example=new Example(UmsPermission.class);
+        List<UmsPermission> permissionList = permissionMapper.selectByExample(example);
         List<UmsPermissionNode> result = permissionList.stream()
                 .filter(permission -> permission.getPid().equals(0L))
                 .map(permission -> covert(permission,permissionList)).collect(Collectors.toList());
@@ -54,7 +55,8 @@ public class UmsPermissionServiceImpl implements UmsPermissionService {
 
     @Override
     public List<UmsPermission> list() {
-        return permissionMapper.selectByExample(new UmsPermissionExample());
+        Example example=new Example(UmsPermission.class);
+        return permissionMapper.selectByExample(example);
     }
 
     /**
