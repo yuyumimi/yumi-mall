@@ -23,7 +23,9 @@
         <destination>localhost:4560</destination>
         <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
-    <root level="DEBUG">
+    <logger name="org.mybatis" level="INFO" />
+    <logger name="java.sql" level="INFO" />
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
         <appender-ref ref="LOGSTASH"/>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yumi.mall.dao.PmsProductDao">
+    <resultMap id="updateInfoMap" type="com.yumi.mall.dto.PmsProductResult" extends="ResultMapWithBLOBs">
+        <result column="cateParentId" jdbcType="BIGINT" property="cateParentId" />
+    </resultMap>
+
+    <select id="getUpdateInfo" resultMap="updateInfoMap">
+        SELECT *,
+            pc.parent_id cateParentId,
+        FROM pms_product p
+        LEFT JOIN pms_product_category pc on pc.id = p.product_category_id
+        WHERE p.id=#{id};
+    </select>
+    <resultMap extends="com.yumi.mall.mapper.PmsProductMapper.BaseResultMap" id="ResultMapWithBLOBs" type="com.yumi.mall.domain.PmsProduct">
+        <result column="description" jdbcType="LONGVARCHAR" property="description" />
+        <result column="detail_desc" jdbcType="LONGVARCHAR" property="detailDesc" />
+        <result column="detail_html" jdbcType="LONGVARCHAR" property="detailHtml" />
+        <result column="detail_mobile_html" jdbcType="LONGVARCHAR" property="detailMobileHtml" />
+    </resultMap>
+</mapper>
