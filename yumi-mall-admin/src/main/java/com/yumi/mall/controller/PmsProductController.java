@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 商品管理Controller
- * Created by macro on 2019/2/26.
+ * Created by yumi on 2019/2/26.
  */
 @Controller
 @Api(tags = "PmsProductController", description = "商品管理")

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 商品审核日志自定义dao
- * Created by macro on 2019/2/27.
+ * Created by yumi on 2019/2/27.
  */
 public interface PmsProductVertifyRecordDao {
     int insertList(@Param("list") List<PmsProductVertifyRecord> list);

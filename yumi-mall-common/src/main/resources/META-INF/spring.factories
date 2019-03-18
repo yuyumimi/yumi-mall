@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.yumi.common.core.config.JacksonConfig,\
+  com.yumi.common.core.config.RedisConfig,\
+  com.yumi.common.core.config.RestTemplateConfig,\
+  com.yumi.common.core.config.FilterIgnorePropertiesConfig,\
+  com.yumi.common.core.exception.GlobalExceptionHandler,\
+  com.yumi.common.core.util.SpringContextHolder

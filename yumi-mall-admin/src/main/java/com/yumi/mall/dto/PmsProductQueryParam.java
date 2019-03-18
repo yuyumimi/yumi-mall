@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 产品查询参数
- * Created by macro on 2019/2/27.
+ * Created by yumi on 2019/2/27.
  */
 public class PmsProductQueryParam {
     @ApiModelProperty("上架状态")

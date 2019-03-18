@@ -6,7 +6,7 @@ import com.yumi.mall.domain.PmsProductCategory;
 import java.util.List;
 
 /**
- * Created by macro on 2018/5/25.
+ * Created by yumi on 2019/2/25.
  */
 public class PmsProductCategoryWithChildrenItem extends PmsProductCategory {
     private List<PmsProductCategory> children;

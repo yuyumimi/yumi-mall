@@ -41,6 +41,7 @@
         <logstash-logback.version>4.8</logstash-logback.version>
         <jjwt.version>0.9.0</jjwt.version>
         <aliyun-sdk-oss.version>2.5.0</aliyun-sdk-oss.version>
+        <hutool.version>4.4.3</hutool.version>
     </properties>
 
     <dependencyManagement>

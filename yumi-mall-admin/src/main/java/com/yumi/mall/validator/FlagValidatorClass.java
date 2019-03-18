@@ -5,7 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 
 /**
  * 状态标记校验器
- * Created by macro on 2019/2/26.
+ * Created by yumi on 2019/2/26.
  */
 public class FlagValidatorClass implements ConstraintValidator<FlagValidator,Integer> {
     private String[] values;

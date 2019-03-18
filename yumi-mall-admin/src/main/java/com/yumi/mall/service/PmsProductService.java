@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 商品管理Service
- * Created by macro on 2019/2/26.
+ * Created by yumi on 2019/2/26.
  */
 public interface PmsProductService {
     /**
