@@ -13,7 +13,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @Version 1.0
  **/
 @SpringBootApplication
-@MapperScan(value = {"com.yumi.mall.mapper","com.yumi.mall.dao","com.yumi.mall.order.dao"},basePackages = {})
+@MapperScan(value = {"com.yumi.mall.mapper","com.yumi.mall.dao","com.yumi.mall.order.dao"})
 @EnableTransactionManagement
 public class MallOrderApplication {
     public static void main(String[] args) {

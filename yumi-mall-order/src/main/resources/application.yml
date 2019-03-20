@@ -7,6 +7,6 @@ mybatis:
 logging:
   level:
     root: info
-    com.yumi.mall: debug
-  path: /var/logs
-  file: yumi-order-logs
+    com.yumi.mall.order: debug
+#  path: /var/logs
+  file: logs/yumi-order-logs

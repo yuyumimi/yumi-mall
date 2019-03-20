@@ -16,6 +16,9 @@
         <module>yumi-mall-common</module>
         <module>yumi-mall-search</module>
         <module>yumi-mall-order</module>
+        <module>yumi-mall-member</module>
+        <module>yumi-mall-cartItem</module>
+        <module>yumi-mall-home</module>
     </modules>
 
 </project>

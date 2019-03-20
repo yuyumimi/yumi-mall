@@ -7,6 +7,6 @@ mybatis:
 logging:
   level:
     root: info
-    com.yumi.mall: debug
-  path: /var/logs
-  file: yumi-search-logs
+    com.yumi.mall.search: debug
+#  path: /var/logs
+  file: logs/yumi-search-logs

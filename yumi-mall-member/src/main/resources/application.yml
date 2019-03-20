@@ -1,0 +1,14 @@
+#默认为开发环境
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8085
+mybatis:
+  mapper-locations: classpath:dao/*.xml,classpath:mapper/*.xml
+logging:
+  level:
+    root: info
+    com.yumi.mall.member: debug
+#  path: /var/logs
+  file: logs/yumi-member-logs
