@@ -1,5 +1,9 @@
+server:
+  port: 9002
 #===datasource start===
 spring:
+  application:
+    name: yumi-mall-member
   datasource:
     url: jdbc:mysql://localhost:3306/yumi-mall?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=utf-8
     username: root
@@ -14,7 +18,11 @@ spring:
         login-username: druid
         login-password: druid
 #===druid end===
-#===redis===
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  #===redis===
   redis:
     database: 0
     host: localhost
@@ -33,5 +41,9 @@ redis:
 authCode:
   expire:
     seconds: 90
-
 #===redis end===
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 会员管理Service实现类
- * Created by macro on 2018/8/3.
+ * Created by yumi on 2019/3/19.
  */
 @Service
 public class UmsMemberServiceImpl implements UmsMemberService {

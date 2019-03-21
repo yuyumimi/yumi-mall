@@ -2,8 +2,6 @@
 spring:
   profiles:
     active: dev
-server:
-  port: 8085
 mybatis:
   mapper-locations: classpath:dao/*.xml,classpath:mapper/*.xml
 logging:

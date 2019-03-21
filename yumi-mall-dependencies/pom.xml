@@ -38,10 +38,14 @@
         <!-- Commons Settings -->
         <mysql.version>8.0.13</mysql.version>
         <swagger2.version>2.9.2</swagger2.version>
-        <logstash-logback.version>4.8</logstash-logback.version>
+        <logstash-logback.version>5.3</logstash-logback.version>
         <jjwt.version>0.9.0</jjwt.version>
         <aliyun-sdk-oss.version>2.5.0</aliyun-sdk-oss.version>
         <hutool.version>4.4.3</hutool.version>
+
+        <kaptcha.version>0.0.9</kaptcha.version>
+        <google-guava.version>27.1-jre</google-guava.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
     </properties>
 
     <dependencyManagement>
@@ -86,6 +90,16 @@
 
             <!-- Commons Begin -->
             <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google-guava.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
@@ -119,6 +133,7 @@
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash-logback.version}</version>
             </dependency>
+
             <!-- Commons End -->
         </dependencies>
     </dependencyManagement>

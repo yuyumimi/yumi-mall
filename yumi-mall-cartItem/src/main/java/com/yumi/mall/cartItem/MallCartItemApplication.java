@@ -2,6 +2,7 @@ package com.yumi.mall.cartItem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -15,6 +16,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @MapperScan(value = {"com.yumi.mall.mapper","com.yumi.mall.dao","com.yumi.mall.cartItem.dao"})
 @EnableTransactionManagement
+@EnableDiscoveryClient
 public class MallCartItemApplication {
     public static void main(String[] args) {
         SpringApplication.run(MallCartItemApplication.class);

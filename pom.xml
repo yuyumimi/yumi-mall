@@ -8,7 +8,12 @@
     <artifactId>yumi-mall</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <properties>
+        <!-- Environment Settings -->
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
     <modules>
         <module>yumi-mall-admin</module>
         <module>yumi-mall-dependencies</module>
@@ -19,6 +24,7 @@
         <module>yumi-mall-member</module>
         <module>yumi-mall-cartItem</module>
         <module>yumi-mall-home</module>
+        <module>yumi-mall-gateway</module>
     </modules>
 
 </project>

@@ -2,7 +2,7 @@ package com.yumi.mall.member.dto;
 
 /**
  * 通用返回对象
- * Created by macro on 2018/4/26.
+ * Created by yumi on 2019/4/26.
  */
 public class CommonResult {
     //操作成功

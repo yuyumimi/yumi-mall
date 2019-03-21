@@ -1,5 +1,9 @@
+server:
+  port: 9005
 #===datasource start===
 spring:
+  application:
+    name: yumi-mall-cartItem
   datasource:
     url: jdbc:mysql://localhost:3306/yumi-mall?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=utf-8
     username: root
@@ -14,3 +18,7 @@ spring:
         login-username: druid
         login-password: druid
 #===druid end===
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

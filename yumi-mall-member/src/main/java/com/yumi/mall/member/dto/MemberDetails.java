@@ -10,7 +10,7 @@ import java.util.Collection;
 
 /**
  * 会员详情封装
- * Created by macro on 2018/8/3.
+ * Created by yumi on 2019/3/19.
  */
 public class MemberDetails implements UserDetails {
     private UmsMember umsMember;

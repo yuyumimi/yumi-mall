@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * TODO 会员商品浏览记录管理Controller
- * Created by macro on 2018/8/3.
+ * Created by yumi on 2019/3/19.
  */
 @Controller
 @Api(tags = "MemberReadHistoryController", description = "会员商品浏览记录管理")

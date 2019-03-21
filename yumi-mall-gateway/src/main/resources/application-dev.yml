@@ -1,0 +1,41 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: yumi-mall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+          url-expression:
+      routes:
+        - id: yumi-mall-home
+          uri: lb://yumi-mall-home
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            - StripPrefix=2
+            - RequestTime=true
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+jwt:
+  tokenHeader: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: Bearer
+  blacklist:
+    key:
+      format: JWT_BLACKLIST::%s
+  skip:
+    urls: /api/auth,/api/token/refresh
