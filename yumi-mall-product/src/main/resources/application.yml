@@ -1,0 +1,16 @@
+#默认为开发环境
+spring:
+  profiles:
+    active: dev
+mybatis:
+  mapper-locations: classpath:dao/*.xml,classpath:mapper/*.xml
+logging:
+  level:
+    root: info
+    com.yumi.mall.product: debug
+#  path: /var/logs
+  file: logs/yumi-product-logs
+swagger:
+  description: "yumi-mall商品服务接口"
+  scan:
+    path: com.yumi.mall.product.controller

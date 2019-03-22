@@ -1,1 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yumi.common.core.config.Swagger2Config

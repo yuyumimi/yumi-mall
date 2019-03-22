@@ -15,16 +15,28 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <modules>
-        <module>yumi-mall-admin</module>
+        <!--统一依赖 -->
         <module>yumi-mall-dependencies</module>
-        <module>yumi-mall-mappers</module>
+        <!--通用配置-->
         <module>yumi-mall-common</module>
-        <module>yumi-mall-search</module>
-        <module>yumi-mall-order</module>
-        <module>yumi-mall-member</module>
-        <module>yumi-mall-cartItem</module>
-        <module>yumi-mall-home</module>
+        <!--自动生成数据库映射实体-->
+        <module>yumi-mall-mappers</module>
+        <!--api网关-->
         <module>yumi-mall-gateway</module>
+        <!--后台登录服务-->
+        <module>yumi-mall-admin</module>
+        <!--商品服务-->
+        <module>yumi-mall-product</module>
+        <!--订单服务-->
+        <module>yumi-mall-order</module>
+        <!--会员服务登录注册-->
+        <module>yumi-mall-member</module>
+        <!--购物车服务-->
+        <module>yumi-mall-cartItem</module>
+        <!--首页服务 轮播图、广告等-->
+        <module>yumi-mall-home</module>
+        <!--搜索服务 全文搜索等-->
+        <module>yumi-mall-search</module>
     </modules>
 
 </project>

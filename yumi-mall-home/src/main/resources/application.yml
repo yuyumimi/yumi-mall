@@ -6,6 +6,10 @@ spring:
     name: yumi-mall-home
 mybatis:
   mapper-locations: classpath:dao/*.xml,classpath:mapper/*.xml
+swagger:
+  description: "yumi-mall首页服务接口"
+  scan:
+    path: com.yumi.mall.home.controller
 logging:
   level:
     root: info

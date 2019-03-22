@@ -10,3 +10,7 @@ logging:
     com.yumi.mall.order: debug
 #  path: /var/logs
   file: logs/yumi-order-logs
+swagger:
+  description: "yumi-mall订单服务接口"
+  scan:
+    path: com.yumi.mall.order.controller

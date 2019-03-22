@@ -1,0 +1,29 @@
+server:
+  port: 9001
+#===datasource start===
+spring:
+  application:
+    name: yumi-mall-product
+  datasource:
+    url: jdbc:mysql://localhost:3306/yumi-mall?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: yuyang
+    druid:
+      initial-size: 5
+      min-idle: 10
+      max-active: 20
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        login-username: druid
+        login-password: druid
+#===druid end===
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

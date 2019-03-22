@@ -86,4 +86,17 @@ public class AccessGatewayFilter implements GlobalFilter, Ordered {
         }
         return null;
     }
+
+    private Mono<Void> setRes(ServerHttpResponse response, R r) {
+        response.setStatusCode(HttpStatus.OK);
+        response.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
+        try {
+            byte[] msg = objectMapper.writeValueAsBytes(r);
+            DataBuffer buffer = response.bufferFactory().wrap(msg);
+            return response.writeWith(Flux.just(buffer));
+        } catch (JsonProcessingException e) {
+            logger.error("对象输出异常", e);
+        }
+        return null;
+    }
 }

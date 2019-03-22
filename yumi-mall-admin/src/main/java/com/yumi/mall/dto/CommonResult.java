@@ -1,7 +1,7 @@
 package com.yumi.mall.dto;
 
 import com.github.pagehelper.PageInfo;
-import com.yumi.mall.util.JsonUtil;
+import com.yumi.common.core.util.JsonUtil;
 import org.springframework.validation.BindingResult;
 
 import java.util.HashMap;

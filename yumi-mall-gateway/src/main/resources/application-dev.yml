@@ -17,7 +17,13 @@ spring:
         - id: yumi-mall-home
           uri: lb://yumi-mall-home
           predicates:
-            - Path=/api/v1/**
+            - Path=/api/home/**
+          filters:
+            - StripPrefix=2
+        - id: yumi-mall-admin
+          uri: lb://yumi-mall-admin
+          predicates:
+            - Path=/api/admin/**
           filters:
             - StripPrefix=2
             - RequestTime=true
@@ -38,4 +44,4 @@ jwt:
     key:
       format: JWT_BLACKLIST::%s
   skip:
-    urls: /api/auth,/api/token/refresh
+    urls: /api/auth,/api/token/refresh,/api/admin/login，/api/member/login

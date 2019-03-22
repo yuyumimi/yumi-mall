@@ -4,6 +4,10 @@ spring:
     active: dev
 mybatis:
   mapper-locations: classpath:dao/*.xml,classpath:mapper/*.xml
+swagger:
+  description: "yumi-mall会员服务接口"
+  scan:
+    path: com.yumi.mall.member.controller
 logging:
   level:
     root: info

@@ -1,7 +1,7 @@
 package com.yumi.mall.component;
 
+import com.yumi.common.core.util.JsonUtil;
 import com.yumi.mall.dto.CommonResult;
-import com.yumi.mall.util.JsonUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
