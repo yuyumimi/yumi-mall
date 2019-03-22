@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Controller
 @Api(tags = "PmsBrandController",description = "商品品牌管理")
-@RequestMapping("/brand")
+@RequestMapping("/product/brand")
 public class PmsBrandController {
     @Autowired
     private PmsBrandService brandService;

@@ -17,16 +17,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * http://ip:port/swagger-ui.html
  */
 @Configuration
-@EnableSwagger2
+//@EnableSwagger2
 public class Swagger2Config {
-    @Value("${swagger.scan.path}")
+    @Value("${swagger.scan.path:''}")
     private String scanPackage;
-    @Value("${swagger.description}")
+    @Value("${swagger.description:''}")
     private String description;
-
+    @Value("${swagger.show:true}")
+    private boolean swaggerShow;
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
+                .enable(this.swaggerShow)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(this.scanPackage))

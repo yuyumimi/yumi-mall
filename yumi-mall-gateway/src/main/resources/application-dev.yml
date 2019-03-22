@@ -14,19 +14,19 @@ spring:
           lower-case-service-id: true
           url-expression:
       routes:
-        - id: yumi-mall-home
-          uri: lb://yumi-mall-home
-          predicates:
-            - Path=/api/home/**
-          filters:
-            - StripPrefix=2
         - id: yumi-mall-admin
           uri: lb://yumi-mall-admin
           predicates:
             - Path=/api/admin/**
           filters:
-            - StripPrefix=2
+            - StripPrefix=1
             - RequestTime=true
+        - id: yumi-mall-product
+          uri: lb://yumi-mall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - StripPrefix=1
 logging:
   level:
     org.springframework.cloud.gateway: debug
@@ -44,4 +44,4 @@ jwt:
     key:
       format: JWT_BLACKLIST::%s
   skip:
-    urls: /api/auth,/api/token/refresh,/api/admin/login，/api/member/login
+    urls: /api/auth,/api/token/refresh,/api/admin/login,/api/member/login
