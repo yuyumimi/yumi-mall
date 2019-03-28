@@ -70,4 +70,11 @@ public interface PmsProductService {
      * 根据商品名称或者货号模糊查询
      */
     List<PmsProduct> list(String keyword);
+
+    /**
+     * 根据id获取商品详情
+     * @param id
+     * @return
+     */
+    PmsProduct getById(Long id);
 }

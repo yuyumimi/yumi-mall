@@ -27,6 +27,18 @@ spring:
             - Path=/api/product/**
           filters:
             - StripPrefix=1
+        - id: yumi-mall-member
+          uri: lb://yumi-mall-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - StripPrefix=1
+        - id: yumi-mall-order
+          uri: lb://yumi-mall-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=1
 logging:
   level:
     org.springframework.cloud.gateway: debug

@@ -2,8 +2,10 @@ package com.yumi.mall.home.service;
 
 
 import com.yumi.mall.domain.CmsSubject;
+import com.yumi.mall.domain.CmsSubjectCategory;
 import com.yumi.mall.domain.PmsProduct;
 import com.yumi.mall.domain.PmsProductCategory;
+import com.yumi.mall.home.dto.CmsSubjectCategoryWithChildrenItem;
 import com.yumi.mall.home.dto.HomeContentResult;
 
 import java.util.List;
@@ -35,4 +37,14 @@ public interface HomeService {
      * @param cateId 专题分类id
      */
     List<CmsSubject> getSubjectList(Long cateId, Integer pageSize, Integer pageNum);
+
+    /**
+     * 查询所有专题
+     */
+    List<CmsSubject> listAll();
+
+    /**
+     * 查询所有专题和商品
+     */
+    List<CmsSubjectCategoryWithChildrenItem> listAllWithChildren(int position);
 }

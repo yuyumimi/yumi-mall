@@ -1,11 +1,10 @@
 package com.yumi.mall.home.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.yumi.mall.domain.CmsSubject;
-import com.yumi.mall.domain.PmsProduct;
-import com.yumi.mall.domain.PmsProductCategory;
-import com.yumi.mall.domain.SmsHomeAdvertise;
+import com.yumi.mall.domain.*;
+import com.yumi.mall.home.dao.CmsSubjectCategoryDao;
 import com.yumi.mall.home.dao.HomeDao;
+import com.yumi.mall.home.dto.CmsSubjectCategoryWithChildrenItem;
 import com.yumi.mall.home.dto.HomeContentResult;
 import com.yumi.mall.home.service.HomeService;
 import com.yumi.mall.mapper.CmsSubjectMapper;
@@ -34,12 +33,16 @@ public class HomeServiceImpl implements HomeService {
     private PmsProductCategoryMapper productCategoryMapper;
     @Autowired
     private CmsSubjectMapper subjectMapper;
-
+    @Autowired
+    private CmsSubjectCategoryDao cmsSubjectCategoryDao;
     @Override
     public HomeContentResult content() {
         HomeContentResult result = new HomeContentResult();
+        //获取首页内容
+        result.setCmsSubjects(listAllWithChildren(0));
         //获取首页广告
-        result.setAdvertiseList(getHomeAdvertiseList());
+//        result.setAdvertiseList(getHomeAdvertiseList());
+
         //获取推荐品牌
 //        result.setBrandList(homeDao.getRecommendBrandList(0,4));
         //获取秒杀信息
@@ -86,11 +89,20 @@ public class HomeServiceImpl implements HomeService {
         return subjectMapper.selectByExample(example);
     }
 
-
     private List<SmsHomeAdvertise> getHomeAdvertiseList() {
         Example example = new Example(SmsHomeAdvertise.class);
         example.createCriteria().andEqualTo("type",1).andEqualTo("status",1);
         example.setOrderByClause("sort desc");
         return advertiseMapper.selectByExample(example);
+    }
+    @Override
+    public List<CmsSubject> listAll() {
+        Example example=new Example(CmsSubject.class);
+        return subjectMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<CmsSubjectCategoryWithChildrenItem> listAllWithChildren(int position){
+        return this.cmsSubjectCategoryDao.listWithChildren(position);
     }
 }

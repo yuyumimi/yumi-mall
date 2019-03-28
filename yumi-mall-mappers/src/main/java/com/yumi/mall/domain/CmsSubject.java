@@ -10,6 +10,9 @@ public class CmsSubject implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * 所属专题id
+     */
     @Column(name = "category_id")
     private Long categoryId;
 
@@ -86,14 +89,18 @@ public class CmsSubject implements Serializable {
     }
 
     /**
-     * @return category_id
+     * 获取所属专题id
+     *
+     * @return category_id - 所属专题id
      */
     public Long getCategoryId() {
         return categoryId;
     }
 
     /**
-     * @param categoryId
+     * 设置所属专题id
+     *
+     * @param categoryId 所属专题id
      */
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;

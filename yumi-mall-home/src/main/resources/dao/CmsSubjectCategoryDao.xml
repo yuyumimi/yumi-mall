@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yumi.mall.home.dao.CmsSubjectCategoryDao">
+    <resultMap id="listWithChildrenMap" type="com.yumi.mall.home.dto.CmsSubjectCategoryWithChildrenItem"
+               extends="com.yumi.mall.mapper.CmsSubjectCategoryMapper.BaseResultMap">
+        <collection property="children" resultMap="CmsSubjectResultMap"
+                    columnPrefix="child_"></collection>
+    </resultMap>
+    <resultMap id="CmsSubjectResultMap" type="com.yumi.mall.home.dto.CmsSubjectDto">
+        <id column="ID" jdbcType="BIGINT" property="id" />
+        <result column="TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="PIC" jdbcType="VARCHAR" property="picUrl" />
+        <result column="PRODUCT_ID" jdbcType="BIGINT" property="productId" />
+    </resultMap>
+
+    <select id="listWithChildren" resultMap="listWithChildrenMap">
+        select
+            csc.id,
+            csc.name,
+            csc.type,
+            cs.id   child_id,
+            cs.title child_title,
+            cs.pic  child_pic,
+            csp.product_id child_product_id
+        from cms_subject_category csc left join cms_subject cs on csc.id = cs.category_id
+        left join cms_subject_product_relation csp on cs.id=csp.subject_id
+        where csc.show_status = 1 and cs.show_status = 1
+        <if test="position!=null">
+            and csc.position = #{position}
+        </if>
+
+
+        ORDER BY csc.sort ASC
+    </select>
+</mapper>

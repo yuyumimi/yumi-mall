@@ -3,6 +3,7 @@ package com.yumi.mall.home.controller;
 import com.yumi.mall.domain.CmsSubject;
 import com.yumi.mall.domain.PmsProduct;
 import com.yumi.mall.domain.PmsProductCategory;
+import com.yumi.mall.home.dto.CmsSubjectCategoryWithChildrenItem;
 import com.yumi.mall.home.dto.HomeContentResult;
 import com.yumi.mall.home.service.HomeService;
 import com.yumi.mall.order.dto.CommonResult;
@@ -58,5 +59,21 @@ public class HomeController {
                                  @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
         List<CmsSubject> subjectList = homeService.getSubjectList(cateId,pageSize,pageNum);
         return new CommonResult().success(subjectList);
+    }
+
+    @ApiOperation("获取全部商品专题")
+    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+    @ResponseBody
+    public Object listAll() {
+        List<CmsSubject> subjectList = homeService.listAll();
+        return new CommonResult().success(subjectList);
+    }
+
+    @ApiOperation("获取全部专题目录及其专题")
+    @RequestMapping(value = "/listAllWithChildren", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult listCmsSubjectCategoryWithChildren(){
+        List<CmsSubjectCategoryWithChildrenItem> results=this.homeService.listAllWithChildren(0);
+        return new CommonResult().success(results);
     }
 }

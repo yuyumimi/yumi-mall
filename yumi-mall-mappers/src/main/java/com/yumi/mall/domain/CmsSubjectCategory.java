@@ -12,6 +12,16 @@ public class CmsSubjectCategory implements Serializable {
     private String name;
 
     /**
+     * 类型 0轮播图 
+     */
+    private Integer type;
+
+    /**
+     * 专题位置 0为首页
+     */
+    private Integer position;
+
+    /**
      * 分类图标
      */
     private String icon;
@@ -55,6 +65,42 @@ public class CmsSubjectCategory implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * 获取类型 0轮播图 
+     *
+     * @return type - 类型 0轮播图 
+     */
+    public Integer getType() {
+        return type;
+    }
+
+    /**
+     * 设置类型 0轮播图 
+     *
+     * @param type 类型 0轮播图 
+     */
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    /**
+     * 获取专题位置 0为首页
+     *
+     * @return position - 专题位置 0为首页
+     */
+    public Integer getPosition() {
+        return position;
+    }
+
+    /**
+     * 设置专题位置 0为首页
+     *
+     * @param position 专题位置 0为首页
+     */
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 
     /**
@@ -129,6 +175,8 @@ public class CmsSubjectCategory implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
+        sb.append(", type=").append(type);
+        sb.append(", position=").append(position);
         sb.append(", icon=").append(icon);
         sb.append(", subjectCount=").append(subjectCount);
         sb.append(", showStatus=").append(showStatus);

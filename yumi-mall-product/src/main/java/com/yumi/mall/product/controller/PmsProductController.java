@@ -141,4 +141,11 @@ public class PmsProductController {
             return new CommonResult().failed();
         }
     }
+    @ApiOperation("获取商品详情")
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult getProductDetail(@PathVariable Long id){
+        PmsProduct product = this.productService.getById(id);
+        return  new CommonResult().success(product);
+    }
 }

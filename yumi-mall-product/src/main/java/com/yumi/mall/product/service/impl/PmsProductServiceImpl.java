@@ -70,24 +70,24 @@ public class PmsProductServiceImpl implements PmsProductService {
         PageHelper.startPage(pageNum, pageSize);
         Example productExample = new Example(PmsProduct.class);
         Example.Criteria criteria = productExample.createCriteria();
-        criteria.andEqualTo("deleteStatus",0);
+        criteria.andEqualTo("deleteStatus", 0);
         if (productQueryParam.getPublishStatus() != null) {
-            criteria.andEqualTo("publishStatus",productQueryParam.getPublishStatus());
+            criteria.andEqualTo("publishStatus", productQueryParam.getPublishStatus());
         }
         if (productQueryParam.getVerifyStatus() != null) {
-            criteria.andEqualTo("verifyStatus",productQueryParam.getVerifyStatus());
+            criteria.andEqualTo("verifyStatus", productQueryParam.getVerifyStatus());
         }
         if (!StringUtils.isEmpty(productQueryParam.getKeyword())) {
-            criteria.andLike("name","%" + productQueryParam.getKeyword() + "%");
+            criteria.andLike("name", "%" + productQueryParam.getKeyword() + "%");
         }
         if (!StringUtils.isEmpty(productQueryParam.getProductSn())) {
-            criteria.andEqualTo("productSn",productQueryParam.getProductSn());
+            criteria.andEqualTo("productSn", productQueryParam.getProductSn());
         }
         if (productQueryParam.getBrandId() != null) {
-            criteria.andEqualTo("brandId",productQueryParam.getBrandId());
+            criteria.andEqualTo("brandId", productQueryParam.getBrandId());
         }
         if (productQueryParam.getProductCategoryId() != null) {
-            criteria.andEqualTo("productCategoryId",productQueryParam.getProductCategoryId());
+            criteria.andEqualTo("productCategoryId", productQueryParam.getProductCategoryId());
         }
         return productMapper.selectByExample(productExample);
     }
@@ -97,7 +97,7 @@ public class PmsProductServiceImpl implements PmsProductService {
         PmsProduct product = new PmsProduct();
         product.setVerifyStatus(verifyStatus);
         Example example = new Example(PmsProduct.class);
-        example.createCriteria().andIn("id",ids);
+        example.createCriteria().andIn("id", ids);
         List<PmsProductVertifyRecord> list = new ArrayList<>();
         int count = productMapper.updateByExampleSelective(product, example);
         //修改完审核状态后插入审核记录
@@ -119,7 +119,7 @@ public class PmsProductServiceImpl implements PmsProductService {
         PmsProduct record = new PmsProduct();
         record.setPublishStatus(publishStatus);
         Example example = new Example(PmsProduct.class);
-        example.createCriteria().andIn("id",ids);
+        example.createCriteria().andIn("id", ids);
         return productMapper.updateByExampleSelective(record, example);
     }
 
@@ -128,7 +128,7 @@ public class PmsProductServiceImpl implements PmsProductService {
         PmsProduct record = new PmsProduct();
         record.setRecommandStatus(recommendStatus);
         Example example = new Example(PmsProduct.class);
-        example.createCriteria().andIn("id",ids);
+        example.createCriteria().andIn("id", ids);
         return productMapper.updateByExampleSelective(record, example);
     }
 
@@ -137,7 +137,7 @@ public class PmsProductServiceImpl implements PmsProductService {
         PmsProduct record = new PmsProduct();
         record.setNewStatus(newStatus);
         Example example = new Example(PmsProduct.class);
-        example.createCriteria().andIn("id",ids);
+        example.createCriteria().andIn("id", ids);
         return productMapper.updateByExampleSelective(record, example);
     }
 
@@ -146,7 +146,7 @@ public class PmsProductServiceImpl implements PmsProductService {
         PmsProduct record = new PmsProduct();
         record.setDeleteStatus(deleteStatus);
         Example example = new Example(PmsProduct.class);
-        example.createCriteria().andIn("id",ids);
+        example.createCriteria().andIn("id", ids);
         return productMapper.updateByExampleSelective(record, example);
     }
 
@@ -154,10 +154,10 @@ public class PmsProductServiceImpl implements PmsProductService {
     public List<PmsProduct> list(String keyword) {
         Example productExample = new Example(PmsProduct.class);
         Example.Criteria criteria = productExample.createCriteria();
-        criteria.andEqualTo("deleteStatus",0);
-        if(!StringUtils.isEmpty(keyword)){
-            criteria.andLike("name","%" + keyword + "%");
-            productExample.or().andEqualTo("deleteStatus",0).andLike("productSn","%" + keyword + "%");
+        criteria.andEqualTo("deleteStatus", 0);
+        if (!StringUtils.isEmpty(keyword)) {
+            criteria.andLike("name", "%" + keyword + "%");
+            productExample.or().andEqualTo("deleteStatus", 0).andLike("productSn", "%" + keyword + "%");
         }
         return productMapper.selectByExample(productExample);
     }
@@ -175,6 +175,11 @@ public class PmsProductServiceImpl implements PmsProductService {
         Long productId = product.getId();
         count = 1;
         return count;
+    }
+
+    @Override
+    public PmsProduct getById(Long id) {
+        return this.productMapper.selectByPrimaryKey(id);
     }
 
     /**
