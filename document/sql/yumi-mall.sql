@@ -11,7 +11,7 @@
  Target Server Version : 80014
  File Encoding         : 65001
 
- Date: 20/03/2019 10:55:05
+ Date: 29/03/2019 16:39:32
 */
 
 SET NAMES utf8mb4;
@@ -23,7 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `cms_subject`;
 CREATE TABLE `cms_subject`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `category_id` bigint(20) NULL DEFAULT NULL,
+  `category_id` bigint(20) NULL DEFAULT NULL COMMENT '所属专题id',
   `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `pic` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '专题主图',
   `product_count` int(11) NULL DEFAULT NULL COMMENT '关联产品数量',
@@ -39,7 +39,7 @@ CREATE TABLE `cms_subject`  (
   `forward_count` int(11) NULL DEFAULT NULL COMMENT '转发数',
   `category_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '专题分类名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '专题表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '专题表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cms_subject
@@ -59,6 +59,18 @@ INSERT INTO `cms_subject` VALUES (12, 3, '赖床无罪，香酥面包营养又�
 INSERT INTO `cms_subject` VALUES (13, 3, '夹心饼干，予多重滋味交织舌尖', 'https://img12.360buyimg.com/mobilecms/s1500x600_jfs/t18877/139/652452758/27262/36e6ed6e/5a9d5b6dN327150e8.jpg!q70.jpg', NULL, 1, '2019-01-29 13:12:38', 100, 1000, 100, NULL, '饼干味道香脆可口，深受不少人的青睐。饼干的种类多样，而夹心饼干就是其中一种，相比普通饼干而言，夹心饼干有着更丰富的口感，当肚子空空如也的时候，来一些美味的夹心饼干，既能解馋，又能扛饿。下面就为大家推荐一组好吃的夹心饼干，作为办公室小零食非常不错。', 1, NULL, NULL, '美食专题');
 INSERT INTO `cms_subject` VALUES (14, 4, '户外Party，便携音箱烘气氛', 'https://img10.360buyimg.com/mobilecms/s1500x600_jfs/t17125/265/644948348/42066/6f2dc610/5a9c9da1N9a95ee2c.jpg!q70.jpg', NULL, 1, '2019-01-29 13:13:53', 100, 1000, 100, NULL, '初春的季节，除了户外的各种踏青旅行，在户外开异常Party也是很惬意。户外派对，气氛的烘托肯定不能离开音箱的衬托，选择一款户外的便携音箱，无线蓝牙连接，免去有线的束缚，携带使用更方便。', 1, NULL, NULL, '数码专题');
 INSERT INTO `cms_subject` VALUES (15, 5, '今冬潮包look，凹出绚丽女王范', 'https://img10.360buyimg.com/mobilecms/s1500x600_jfs/t8365/191/1901440450/575969/c71560c9/59c3144dNe6d8dd2f.png', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, '潮流时尚的美包，搭配潮服，会让你魅力一直在线。因为潮包一直是女性出游扮美的秘籍，它不仅能够帮你收纳日常小物件，还能让你解放双手，这里推荐的时尚美包，随意搭配一件服饰，都可以让你潮范十足，凹出绚丽女王范。', 1, NULL, NULL, '服饰专题');
+INSERT INTO `cms_subject` VALUES (16, 6, NULL, 'https://i1.mifile.cn/a4/xmad_15535928512136_PqzwC.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (17, 6, NULL, 'https://resource.smartisan.com/resource/2/2240X1108Pro2sweb1.png?x-oss-process=image/format,jpg/quality,Q_100', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (18, 6, NULL, 'https://s1.ax1x.com/2018/05/19/Ccdiid.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (19, 6, NULL, 'https://i1.mifile.cn/a4/xmad_1553001447971_RgNpT.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (20, 7, NULL, 'https://resource.smartisan.com/resource/6/610400yijiuhuanxin.jpg', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (21, 7, NULL, 'https://resource.smartisan.com/resource/6/610400xinpinpeijian.jpg', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (22, 7, NULL, 'https://resource.smartisan.com/resource/4/489673079577637073.png', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (23, 11, NULL, 'https://resource.smartisan.com/resource/88684d7ed5eee77e34f044fa32a9121b.png', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (24, 11, NULL, 'https://resource.smartisan.com/resource/6/610400dibu.jpg', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (25, 11, NULL, 'https://resource.smartisan.com/resource/c245ada282824a4a15e68bec80502ad4.jpg', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (26, 11, NULL, 'https://resource.smartisan.com/resource/m/minibanner_03.jpg', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `cms_subject` VALUES (27, 11, NULL, 'https://resource.smartisan.com/resource/m/minibanner_03.jpg', NULL, 1, '2019-01-29 13:15:12', 100, 1000, 100, NULL, NULL, 1, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for cms_subject_category
@@ -67,21 +79,59 @@ DROP TABLE IF EXISTS `cms_subject_category`;
 CREATE TABLE `cms_subject_category`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `type` int(1) NULL DEFAULT NULL COMMENT '类型 0轮播图 ',
+  `position` int(1) NULL DEFAULT NULL COMMENT '专题位置 0为首页',
   `icon` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '分类图标',
   `subject_count` int(11) NULL DEFAULT NULL COMMENT '专题数量',
   `show_status` int(2) NULL DEFAULT NULL,
   `sort` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '专题分类表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '专题分类表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cms_subject_category
 -- ----------------------------
-INSERT INTO `cms_subject_category` VALUES (1, '精选专题', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/subject_cate_jingxuan.png', 3, 1, 100);
-INSERT INTO `cms_subject_category` VALUES (2, '家电专题', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/subject_cate_jiadian.png', 7, 1, 0);
-INSERT INTO `cms_subject_category` VALUES (3, '美食专题', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/subject_cate_meishi.png', 3, 1, 0);
-INSERT INTO `cms_subject_category` VALUES (4, '数码专题', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/product_cate_shouji.png', 1, 1, 0);
-INSERT INTO `cms_subject_category` VALUES (5, '服饰专题', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/product_cate_waitao.png', 1, 1, 0);
+INSERT INTO `cms_subject_category` VALUES (1, '精选专题', NULL, 1, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/subject_cate_jingxuan.png', 3, 1, 100);
+INSERT INTO `cms_subject_category` VALUES (2, '家电专题', NULL, 1, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/subject_cate_jiadian.png', 7, 1, 0);
+INSERT INTO `cms_subject_category` VALUES (3, '美食专题', NULL, 1, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/subject_cate_meishi.png', 3, 1, 0);
+INSERT INTO `cms_subject_category` VALUES (4, '数码专题', NULL, 1, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/product_cate_shouji.png', 1, 1, 0);
+INSERT INTO `cms_subject_category` VALUES (5, '服饰专题', NULL, 1, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/product_cate_waitao.png', 1, 1, 0);
+INSERT INTO `cms_subject_category` VALUES (6, '轮播图', 0, 0, NULL, 5, 1, 0);
+INSERT INTO `cms_subject_category` VALUES (7, '活动版块', 1, 0, NULL, 4, 1, 1);
+INSERT INTO `cms_subject_category` VALUES (8, '热门商品', 2, 0, NULL, 3, 1, 2);
+INSERT INTO `cms_subject_category` VALUES (9, '官方精选', 3, 0, NULL, 8, 1, 3);
+INSERT INTO `cms_subject_category` VALUES (10, '品牌精选', 3, 0, NULL, 7, 1, 4);
+INSERT INTO `cms_subject_category` VALUES (11, '活动版块2', 1, 0, NULL, 4, 1, 5);
+
+-- ----------------------------
+-- Table structure for cms_subject_product_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_subject_product_relation`;
+CREATE TABLE `cms_subject_product_relation`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `subject_id` bigint(20) NULL DEFAULT NULL,
+  `product_id` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '专题商品关系表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of cms_subject_product_relation
+-- ----------------------------
+INSERT INTO `cms_subject_product_relation` VALUES (1, 1, 26);
+INSERT INTO `cms_subject_product_relation` VALUES (2, 1, 27);
+INSERT INTO `cms_subject_product_relation` VALUES (3, 1, 28);
+INSERT INTO `cms_subject_product_relation` VALUES (4, 1, 29);
+INSERT INTO `cms_subject_product_relation` VALUES (5, 2, 30);
+INSERT INTO `cms_subject_product_relation` VALUES (6, 2, 31);
+INSERT INTO `cms_subject_product_relation` VALUES (7, 2, 35);
+INSERT INTO `cms_subject_product_relation` VALUES (8, 16, 40);
+INSERT INTO `cms_subject_product_relation` VALUES (9, 17, 40);
+INSERT INTO `cms_subject_product_relation` VALUES (10, 18, 40);
+INSERT INTO `cms_subject_product_relation` VALUES (11, 19, 40);
+INSERT INTO `cms_subject_product_relation` VALUES (29, 2, 36);
+INSERT INTO `cms_subject_product_relation` VALUES (30, 2, 32);
+INSERT INTO `cms_subject_product_relation` VALUES (31, 3, 33);
+INSERT INTO `cms_subject_product_relation` VALUES (38, 3, 34);
 
 -- ----------------------------
 -- Table structure for oms_cart_item
@@ -171,7 +221,7 @@ CREATE TABLE `oms_order`  (
   `comment_time` datetime(0) NULL DEFAULT NULL COMMENT '评价时间',
   `modify_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oms_order
@@ -222,7 +272,7 @@ CREATE TABLE `oms_order_item`  (
   `gift_growth` int(11) NULL DEFAULT 0,
   `product_attr` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品销售属性:[{\"key\":\"颜色\",\"value\":\"颜色\"},{\"key\":\"容量\",\"value\":\"4G\"}]',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单中所包含的商品' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单中所包含的商品' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oms_order_item
@@ -265,7 +315,7 @@ CREATE TABLE `oms_order_operate_history`  (
   `order_status` int(1) NULL DEFAULT NULL COMMENT '订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单',
   `note` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单操作历史记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单操作历史记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of oms_order_operate_history
@@ -405,6 +455,7 @@ INSERT INTO `pms_product` VALUES (33, 6, 35, 0, NULL, '小米（MI）小米电�
 INSERT INTO `pms_product` VALUES (34, 6, 35, 0, NULL, '小米（MI）小米电视4A 65英寸', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20180615/5b028530N51eee7d4.jpg', '4609660', 0, 1, 0, 0, 0, 0, 0, 3999.00, NULL, 0, 0, 0, ' L65M5-AZ/L65M5-AD 2GB+8GB HDR 4K超高清 人工智能网络液晶平板电视', '', 3999.00, 100, 0, '', 0.00, 0, '', '', '', '', '', '', '', '', NULL, NULL, 0, 0, '小米', '手机数码');
 INSERT INTO `pms_product` VALUES (35, 58, 29, 0, NULL, '耐克NIKE 男子 休闲鞋 ROSHE RUN 运动鞋 511881-010黑色41码', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20180615/5b235bb9Nf606460b.jpg', '6799342', 0, 1, 0, 0, 0, 0, 0, 369.00, NULL, 0, 0, 0, '耐克NIKE 男子 休闲鞋 ROSHE RUN 运动鞋 511881-010黑色41码', '', 369.00, 100, 0, '', 0.00, 0, '', '', '', '', '', '', '', '', NULL, NULL, 0, 0, 'NIKE', '男鞋');
 INSERT INTO `pms_product` VALUES (36, 58, 29, 0, NULL, '耐克NIKE 男子 气垫 休闲鞋 AIR MAX 90 ESSENTIAL 运动鞋 AJ1285-101白色41码', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20180615/5b19403eN9f0b3cb8.jpg', '6799345', 0, 1, 1, 1, 0, 0, 0, 499.00, NULL, 0, 0, 0, '耐克NIKE 男子 气垫 休闲鞋 AIR MAX 90 ESSENTIAL 运动鞋 AJ1285-101白色41码', '', 499.00, 100, 0, '', 0.00, 0, '', '', '', '', '', '', '', '', NULL, NULL, 0, 0, 'NIKE', '男鞋');
+INSERT INTO `pms_product` VALUES (40, 6, 19, 0, NULL, '支付测试商品 IPhone X 全面屏 全面绽放', 'https://i.loli.net/2018/07/13/5b48ac7766d98.png,https://i.loli.net/2018/07/13/5b48ac9135c5f.png,https://i.loli.net/2018/07/13/5b48ac9c2be6c.png,https://i.loli.net/2018/07/13/5b48aca99c8b6.png,https://i.loli.net/2018/07/13/5b48a7f468bf2.png', '7437788', 0, 1, 1, 1, 0, 0, 0, 499.00, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<p style=\"text-align:center;\">\n	<img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t7843/137/3005340945/124833/dc7c71f2/59b8ccd1N2bffd055.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8764/314/1380452846/296346/d62490e2/59b8ccd1N96ce760d.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8710/275/1373463301/363710/ebf00bff/59b8ccbaN2d563f74.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8632/330/1390725687/229853/e56f9e1b/59b8ccd1N7b8b6bdb.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9115/290/1376678976/488369/591760dc/59b8ccc6N1563a61b.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8233/331/1431263348/183032/b875528c/59b8ccd1Ne7e633e3.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8785/253/890847377/186916/c467a464/59b8ccd1N4551397c.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t8728/276/1416802585/172158/1516ec08/59b8ccd1N95aae9c9.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9082/133/1223014275/307097/58f97021/59b8ccd2Nebfc633a.jpg\" alt=\"\" /><img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9052/275/1400615286/155643/1b0ecf44/59b8ccd2N46bd82bf.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t9169/240/1361662217/193435/24ed9b93/59b8ccd4N03cec407.jpg\" alt=\"\" /> <img src=\"https://img30.360buyimg.com/popWaterMark/jfs/t7390/232/3008585906/285016/56cbb12/59b8ccd4Nc8434af8.jpg\" alt=\"\" /> \n</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for pms_product_category
@@ -558,7 +609,7 @@ CREATE TABLE `ums_admin`  (
 -- Records of ums_admin
 -- ----------------------------
 INSERT INTO `ums_admin` VALUES (1, 'test', '$2a$10$vtVXzF2QA6VFbtaFIb5To.6iXdJ3n0/cKI6dpGFySO09g.En87/MW', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20180607/timg.jpg', NULL, '测试账号', NULL, '2018-09-29 13:55:30', '2018-09-29 13:55:39', 1);
-INSERT INTO `ums_admin` VALUES (3, 'admin', '$2a$10$vtVXzF2QA6VFbtaFIb5To.6iXdJ3n0/cKI6dpGFySO09g.En87/MW', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/170157_yIl3_1767531.jpg', 'admin@163.com', '系统管理员', '系统管理员', '2018-10-08 13:32:47', '2019-03-07 13:25:28', 1);
+INSERT INTO `ums_admin` VALUES (3, 'admin', '$2a$10$vtVXzF2QA6VFbtaFIb5To.6iXdJ3n0/cKI6dpGFySO09g.En87/MW', 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20190129/170157_yIl3_1767531.jpg', 'admin@163.com', '系统管理员', '系统管理员', '2018-10-08 13:32:47', '2019-03-22 14:12:55', 1);
 
 -- ----------------------------
 -- Table structure for ums_admin_login_log
@@ -572,7 +623,7 @@ CREATE TABLE `ums_admin_login_log`  (
   `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_agent` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '浏览器登录类型',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '后台用户登录日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ums_admin_login_log
@@ -592,6 +643,12 @@ INSERT INTO `ums_admin_login_log` VALUES (16, 3, '2019-02-18 09:59:37', '0:0:0:0
 INSERT INTO `ums_admin_login_log` VALUES (17, 3, '2019-03-06 15:12:36', '0:0:0:0:0:0:0:1', NULL, NULL);
 INSERT INTO `ums_admin_login_log` VALUES (18, 3, '2019-03-06 16:41:07', '0:0:0:0:0:0:0:1', NULL, NULL);
 INSERT INTO `ums_admin_login_log` VALUES (19, 3, '2019-03-07 13:25:28', '0:0:0:0:0:0:0:1', NULL, NULL);
+INSERT INTO `ums_admin_login_log` VALUES (20, 3, '2019-03-21 09:45:01', '0:0:0:0:0:0:0:1', NULL, NULL);
+INSERT INTO `ums_admin_login_log` VALUES (21, 3, '2019-03-22 10:17:49', '0:0:0:0:0:0:0:1', NULL, NULL);
+INSERT INTO `ums_admin_login_log` VALUES (22, 3, '2019-03-22 14:09:35', '172.20.65.57', NULL, NULL);
+INSERT INTO `ums_admin_login_log` VALUES (23, 3, '2019-03-22 14:10:31', '172.20.65.57', NULL, NULL);
+INSERT INTO `ums_admin_login_log` VALUES (24, 3, '2019-03-22 14:11:56', '172.20.65.57', NULL, NULL);
+INSERT INTO `ums_admin_login_log` VALUES (25, 3, '2019-03-22 14:12:55', '172.20.65.57', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for ums_admin_permission_relation
@@ -725,7 +782,7 @@ CREATE TABLE `ums_member_receive_address`  (
   `region` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '区',
   `detail_address` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '详细地址(街道)',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '会员收货地址表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '会员收货地址表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ums_member_receive_address
