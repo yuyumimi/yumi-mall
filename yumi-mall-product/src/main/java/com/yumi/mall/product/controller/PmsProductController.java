@@ -142,7 +142,7 @@ public class PmsProductController {
         }
     }
     @ApiOperation("获取商品详情")
-    @RequestMapping(value = "/product/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getProductDetail(@PathVariable Long id){
         PmsProduct product = this.productService.getById(id);
