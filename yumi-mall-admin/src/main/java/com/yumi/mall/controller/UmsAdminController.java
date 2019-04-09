@@ -6,9 +6,11 @@ import com.yumi.mall.domain.UmsRole;
 import com.yumi.mall.dto.CommonResult;
 import com.yumi.mall.dto.UmsAdminLoginParam;
 import com.yumi.mall.dto.UmsAdminParam;
+import com.yumi.mall.dto.UserInfo;
 import com.yumi.mall.service.UmsAdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -86,6 +88,9 @@ public class UmsAdminController {
         data.put("username", umsAdmin.getUsername());
         data.put("roles", new String[]{"TEST"});
         data.put("icon", umsAdmin.getIcon());
+        UserInfo info=new UserInfo();
+        BeanUtils.copyProperties(umsAdmin,info);
+        data.put("userInfo",info);
         return new CommonResult().success(data);
     }
 
@@ -117,7 +122,7 @@ public class UmsAdminController {
     @ApiOperation("获取指定用户信息")
     @RequestMapping(value = "/update/{id}",method = RequestMethod.POST)
     @ResponseBody
-    public Object update(@PathVariable Long id, @RequestBody UmsAdmin admin){
+    public Object update(@PathVariable Long id, @RequestBody UmsAdminParam admin){
         int count = adminService.update(id,admin);
         if(count>0){
             return new CommonResult().success(count);
@@ -175,7 +180,16 @@ public class UmsAdminController {
         List<UmsPermission> permissionList = adminService.getPermissionList(adminId);
         return new CommonResult().success(permissionList);
     }
-
+    @ApiOperation("修改管理员信息")
+    @RequestMapping(value = "/admin/{id}",method = RequestMethod.PUT)
+    @ResponseBody
+    public Object edit(@PathVariable Long id, @RequestBody UmsAdminParam admin){
+        int count = adminService.update(id,admin);
+        if(count>0){
+            return new CommonResult().success(count);
+        }
+        return new CommonResult().failed();
+    }
     public static void main(String[] args) {
         BCryptPasswordEncoder b=new BCryptPasswordEncoder();
         String encode = b.encode("123456");

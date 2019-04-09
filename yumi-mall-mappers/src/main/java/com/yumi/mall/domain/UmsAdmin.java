@@ -19,6 +19,8 @@ public class UmsAdmin implements Serializable {
      */
     private String icon;
 
+    private Integer phone;
+
     /**
      * 邮箱
      */
@@ -112,6 +114,20 @@ public class UmsAdmin implements Serializable {
      */
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    /**
+     * @return phone
+     */
+    public Integer getPhone() {
+        return phone;
+    }
+
+    /**
+     * @param phone
+     */
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
     /**
@@ -232,6 +248,7 @@ public class UmsAdmin implements Serializable {
         sb.append(", username=").append(username);
         sb.append(", password=").append(password);
         sb.append(", icon=").append(icon);
+        sb.append(", phone=").append(phone);
         sb.append(", email=").append(email);
         sb.append(", nickName=").append(nickName);
         sb.append(", note=").append(note);

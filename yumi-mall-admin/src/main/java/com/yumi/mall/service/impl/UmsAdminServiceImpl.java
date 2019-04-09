@@ -11,6 +11,7 @@ import com.yumi.mall.mapper.UmsAdminPermissionRelationMapper;
 import com.yumi.mall.mapper.UmsAdminRoleRelationMapper;
 import com.yumi.mall.service.UmsAdminService;
 import com.yumi.mall.util.JwtTokenUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -26,7 +27,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import tk.mybatis.mapper.entity.Example;
@@ -68,8 +68,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
-        Example example=new Example(UmsAdmin.class);
-        example.createCriteria().andEqualTo("username",username);
+        Example example = new Example(UmsAdmin.class);
+        example.createCriteria().andEqualTo("username", username);
         List<UmsAdmin> adminList = adminMapper.selectByExample(example);
         if (adminList != null && adminList.size() > 0) {
             return adminList.get(0);
@@ -86,7 +86,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         //查询是否有相同用户名的用户
 
         Example example = new Example(UmsAdmin.class);
-        example.createCriteria().andEqualTo("username",umsAdmin.getUsername());
+        example.createCriteria().andEqualTo("username", umsAdmin.getUsername());
         List<UmsAdmin> umsAdminList = adminMapper.selectByExample(example);
         if (umsAdminList.size() > 0) {
             return null;
@@ -139,7 +139,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         UmsAdmin record = new UmsAdmin();
         record.setLoginTime(new Date());
         Example example = new Example(UmsAdmin.class);
-        example.createCriteria().andEqualTo("username",username);
+        example.createCriteria().andEqualTo("username", username);
         adminMapper.updateByExampleSelective(record, example);
     }
 
@@ -163,16 +163,30 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         Example example = new Example(UmsAdmin.class);
         Example.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(name)) {
-            criteria.andLike("username","%" + name + "%");
-            example.or(example.createCriteria().andLike("nickName","%" + name + "%"));
+            criteria.andLike("username", "%" + name + "%");
+            example.or(example.createCriteria().andLike("nickName", "%" + name + "%"));
         }
         return adminMapper.selectByExample(example);
     }
 
     @Override
-    public int update(Long id, UmsAdmin admin) {
-        admin.setId(id);
-        return adminMapper.updateByPrimaryKey(admin);
+    public int update(Long id, UmsAdminParam admin) {
+        UmsAdmin umsAdmin = new UmsAdmin();
+        BeanUtils.copyProperties(admin, umsAdmin);
+        umsAdmin.setId(id);
+        if (!StringUtils.isBlank(admin.getPassword())) {
+            encodePassowrd(umsAdmin, admin);
+        }
+        return adminMapper.updateByPrimaryKeySelective(umsAdmin);
+    }
+
+    private UmsAdmin encodePassowrd(UmsAdmin admin, UmsAdminParam param) {
+        UmsAdmin umsAdmin = this.adminMapper.selectByPrimaryKey(admin);
+
+        if (this.bCryptPasswordEncoder.matches(param.getPassword(),umsAdmin.getPassword())) {
+            admin.setPassword(bCryptPasswordEncoder.encode(param.getNewpassword1()));
+        }
+        return umsAdmin;
     }
 
     @Override
@@ -185,7 +199,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         int count = roleIds == null ? 0 : roleIds.size();
         //先删除原来的关系
         Example adminRoleRelationExample = new Example(UmsAdminRoleRelation.class);
-        adminRoleRelationExample.createCriteria().andEqualTo("adminId",adminId);
+        adminRoleRelationExample.createCriteria().andEqualTo("adminId", adminId);
         adminRoleRelationMapper.deleteByExample(adminRoleRelationExample);
         //建立新关系
         if (!CollectionUtils.isEmpty(roleIds)) {
@@ -210,7 +224,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     public int updatePermission(Long adminId, List<Long> permissionIds) {
         //删除原所有权限关系
         Example relationExample = new Example(UmsAdminPermissionRelation.class);
-        relationExample.createCriteria().andEqualTo("adminId",adminId);
+        relationExample.createCriteria().andEqualTo("adminId", adminId);
         adminPermissionRelationMapper.deleteByExample(relationExample);
         //获取用户所有角色权限
         List<UmsPermission> permissionList = adminRoleRelationDao.getRolePermissionList(adminId);

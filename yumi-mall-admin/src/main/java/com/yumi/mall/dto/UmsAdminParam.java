@@ -28,4 +28,8 @@ public class UmsAdminParam {
     private String nickName;
     @ApiModelProperty(value = "备注")
     private String note;
+    private Integer phone;
+    private String newpassword1;
+    private String newpassword2;
+
 }
