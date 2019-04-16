@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yumi.common.core.util.R;
 import com.yumi.common.security.jwt.JwtTokenUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,14 +59,15 @@ public class AccessGatewayFilter implements GlobalFilter, Ordered {
             return setR(response,r);
         }
         token = token.substring(this.tokenHead.length());// The part after "Bearer "
-        if (!this.jwtTokenUtil.validateToken(token)) {
+        String userName = this.jwtTokenUtil.getUserNameFromToken(token);
+        if (StringUtils.isBlank(userName)) {
             ServerHttpResponse response = exchange.getResponse();
             R r=R.builder().msg("invalid token").code(HttpStatus.UNAUTHORIZED.value()).build();
             return setR(response,r);
         }
         //将现在的request，添加当前身份
-//        ServerHttpRequest mutableReq = exchange.getRequest().mutate().header("Authorization-UserName", userName).build();
-//        ServerWebExchange mutableExchange = exchange.mutate().request(mutableReq).build();
+        ServerHttpRequest mutableReq = exchange.getRequest().mutate().header("Authorization-UserName", userName).build();
+        ServerWebExchange mutableExchange = exchange.mutate().request(mutableReq).build();
         return chain.filter(exchange);
     }
 

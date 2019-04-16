@@ -1,6 +1,8 @@
 package com.yumi.mall.order.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.yumi.mall.domain.UmsMember;
+import com.yumi.mall.domain.UmsMemberReceiveAddress;
 import com.yumi.mall.mapper.OmsOrderMapper;
 import com.yumi.mall.mapper.OmsOrderOperateHistoryMapper;
 import com.yumi.mall.domain.OmsOrder;
@@ -150,4 +152,23 @@ public class OmsOrderServiceImpl implements OmsOrderService {
         orderOperateHistoryMapper.insert(history);
         return count;
     }
+
+    public ConfirmOrderResult generateConfirmOrder() {
+        ConfirmOrderResult result = new ConfirmOrderResult();
+        //获取当前用户
+
+//        UmsMember currentMember = memberService.getCurrentMember();
+        //获取购物车信息
+//        List<CartPromotionItem> cartPromotionItemList = cartItemService.listPromotion(currentMember.getId());
+//        result.setCartPromotionItemList(cartPromotionItemList);
+        //获取用户收货地址列表
+//        List<UmsMemberReceiveAddress> memberReceiveAddressList = memberReceiveAddressService.list();
+//        result.setMemberReceiveAddressList(memberReceiveAddressList);
+        //计算总金额、活动优惠、应付金额
+//        ConfirmOrderResult.CalcAmount calcAmount = calcCartAmount(cartPromotionItemList);
+//        result.setCalcAmount(calcAmount);
+        return result;
+    }
+
+
 }
