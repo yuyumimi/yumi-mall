@@ -1,5 +1,7 @@
 package com.yumi.mall.member.controller;
 
+import com.yumi.mall.domain.UmsMember;
+import com.yumi.mall.member.dto.CommonResult;
 import com.yumi.mall.member.service.UmsMemberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @Api(tags = "UmsMemberController", description = "会员登录注册管理")
-@RequestMapping("/level")
+@RequestMapping("/member")
 public class UmsMemberController {
     @Autowired
     private UmsMemberService memberService;
@@ -45,5 +47,12 @@ public class UmsMemberController {
                                  @RequestParam String password,
                                  @RequestParam String authCode) {
         return memberService.updatePassword(telephone,password,authCode);
+    }
+
+    @RequestMapping(value = "/checkLogin",method = RequestMethod.GET)
+    @ApiOperation(value = "判断用户是否登录")
+    public Object checkLogin(@RequestParam(defaultValue = "") String token){
+        UmsMember member=this.memberService.getCurrentMember();
+        return new CommonResult().success(member);
     }
 }

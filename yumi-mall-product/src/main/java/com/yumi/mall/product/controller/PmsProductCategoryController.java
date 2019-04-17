@@ -112,7 +112,9 @@ public class PmsProductCategoryController {
     @RequestMapping(value = "/list/withChildren", method = RequestMethod.GET)
     @ResponseBody
     public Object listWithChildren() {
+        //查询出商品一级分类及子分类
         List<PmsProductCategoryWithChildrenItem> list = productCategoryService.listWithChildren();
+        //封装成成功响应类
         return new CommonResult().success(list);
     }
 }
