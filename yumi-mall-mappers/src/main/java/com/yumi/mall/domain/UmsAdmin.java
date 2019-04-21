@@ -19,8 +19,6 @@ public class UmsAdmin implements Serializable {
      */
     private String icon;
 
-    private Integer phone;
-
     /**
      * 邮箱
      */
@@ -53,6 +51,11 @@ public class UmsAdmin implements Serializable {
      * 帐号启用状态：0->禁用；1->启用
      */
     private Integer status;
+
+    /**
+     * 手机号
+     */
+    private String phone;
 
     private static final long serialVersionUID = 1L;
 
@@ -114,20 +117,6 @@ public class UmsAdmin implements Serializable {
      */
     public void setIcon(String icon) {
         this.icon = icon;
-    }
-
-    /**
-     * @return phone
-     */
-    public Integer getPhone() {
-        return phone;
-    }
-
-    /**
-     * @param phone
-     */
-    public void setPhone(Integer phone) {
-        this.phone = phone;
     }
 
     /**
@@ -238,6 +227,24 @@ public class UmsAdmin implements Serializable {
         this.status = status;
     }
 
+    /**
+     * 获取手机号
+     *
+     * @return phone - 手机号
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * 设置手机号
+     *
+     * @param phone 手机号
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -248,13 +255,13 @@ public class UmsAdmin implements Serializable {
         sb.append(", username=").append(username);
         sb.append(", password=").append(password);
         sb.append(", icon=").append(icon);
-        sb.append(", phone=").append(phone);
         sb.append(", email=").append(email);
         sb.append(", nickName=").append(nickName);
         sb.append(", note=").append(note);
         sb.append(", createTime=").append(createTime);
         sb.append(", loginTime=").append(loginTime);
         sb.append(", status=").append(status);
+        sb.append(", phone=").append(phone);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

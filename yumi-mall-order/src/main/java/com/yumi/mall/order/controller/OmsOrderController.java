@@ -110,41 +110,41 @@ public class OmsOrderController {
 
     //前台接口
 
-    @ApiOperation("根据购物车信息生成确认单信息")
-    @RequestMapping(value = "/generateConfirmOrder",method = RequestMethod.POST)
-    @ResponseBody
-    public Object generateConfirmOrder(){
-        ConfirmOrderResult confirmOrderResult = portalOrderService.generateConfirmOrder();
-        return new CommonResult().success(confirmOrderResult);
-    }
-
-    @ApiOperation("根据购物车信息生成订单")
-    @RequestMapping(value = "/generateOrder",method = RequestMethod.POST)
-    @ResponseBody
-    public Object generateOrder(@RequestBody OrderParam orderParam){
-        return portalOrderService.generateOrder(orderParam);
-    }
-    @ApiOperation("支付成功的回调")
-    @RequestMapping(value = "/paySuccess",method = RequestMethod.POST)
-    @ResponseBody
-    public Object paySuccess(@RequestParam Long orderId){
-        return portalOrderService.paySuccess(orderId);
-    }
-
-    @ApiOperation("自动取消超时订单")
-    @RequestMapping(value = "/cancelTimeOutOrder",method = RequestMethod.POST)
-    @ResponseBody
-    public Object cancelTimeOutOrder(){
-        return portalOrderService.cancelTimeOutOrder();
-    }
-
-    @ApiOperation("取消单个超时订单")
-    @RequestMapping(value = "/cancelOrder",method = RequestMethod.POST)
-    @ResponseBody
-    public Object cancelOrder(Long orderId){
-        portalOrderService.sendDelayMessageCancelOrder(orderId);
-        return new CommonResult().success(null);
-    }
+//    @ApiOperation("根据购物车信息生成确认单信息")
+//    @RequestMapping(value = "/generateConfirmOrder",method = RequestMethod.POST)
+//    @ResponseBody
+//    public Object generateConfirmOrder(){
+//        ConfirmOrderResult confirmOrderResult = portalOrderService.generateConfirmOrder();
+//        return new CommonResult().success(confirmOrderResult);
+//    }
+//
+//    @ApiOperation("根据购物车信息生成订单")
+//    @RequestMapping(value = "/generateOrder",method = RequestMethod.POST)
+//    @ResponseBody
+//    public Object generateOrder(@RequestBody OrderParam orderParam){
+//        return portalOrderService.generateOrder(orderParam);
+//    }
+//    @ApiOperation("支付成功的回调")
+//    @RequestMapping(value = "/paySuccess",method = RequestMethod.POST)
+//    @ResponseBody
+//    public Object paySuccess(@RequestParam Long orderId){
+//        return portalOrderService.paySuccess(orderId);
+//    }
+//
+//    @ApiOperation("自动取消超时订单")
+//    @RequestMapping(value = "/cancelTimeOutOrder",method = RequestMethod.POST)
+//    @ResponseBody
+//    public Object cancelTimeOutOrder(){
+//        return portalOrderService.cancelTimeOutOrder();
+//    }
+//
+//    @ApiOperation("取消单个超时订单")
+//    @RequestMapping(value = "/cancelOrder",method = RequestMethod.POST)
+//    @ResponseBody
+//    public Object cancelOrder(Long orderId){
+//        portalOrderService.sendDelayMessageCancelOrder(orderId);
+//        return new CommonResult().success(null);
+//    }
 
 
 

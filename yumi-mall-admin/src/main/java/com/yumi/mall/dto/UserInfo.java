@@ -11,7 +11,7 @@ import lombok.Setter;
 public class UserInfo {
     private Long id;
     private String username;
-    private Integer phone;
+    private String phone;
     private String icon;
     private String email;
     private String nickName;

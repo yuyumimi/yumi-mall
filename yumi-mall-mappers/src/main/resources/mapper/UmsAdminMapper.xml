@@ -9,12 +9,12 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
-    <result column="phone" jdbcType="INTEGER" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="note" jdbcType="VARCHAR" property="note" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="phone" jdbcType="CHAR" property="phone" />
   </resultMap>
 </mapper>
