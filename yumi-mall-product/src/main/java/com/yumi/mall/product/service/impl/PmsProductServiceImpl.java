@@ -43,7 +43,7 @@ public class PmsProductServiceImpl implements PmsProductService {
         //创建商品
         PmsProduct product = productParam;
         product.setId(null);
-        productMapper.insertSelective(product);
+        int i = productMapper.insertSelective(product);
         count = 1;
         return count;
     }

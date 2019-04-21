@@ -111,7 +111,7 @@ public class OmsOrderController {
     //前台接口
 
 //    @ApiOperation("根据购物车信息生成确认单信息")
-//    @RequestMapping(value = "/generateConfirmOrder",method = RequestMethod.POST)
+//    @RequestMapping(value = "/generate",method = RequestMethod.POST)
 //    @ResponseBody
 //    public Object generateConfirmOrder(){
 //        ConfirmOrderResult confirmOrderResult = portalOrderService.generateConfirmOrder();
