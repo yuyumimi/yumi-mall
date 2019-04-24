@@ -8,7 +8,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @ClassName MallMemberApplication
- * @Description TODO
+ * @Description 会员管理模块
  * @Author yuyu
  * @Date 2019/3/18 15:49
  * @Version 1.0
