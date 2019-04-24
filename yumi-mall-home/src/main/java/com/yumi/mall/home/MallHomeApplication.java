@@ -8,7 +8,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @ClassName MallOrderApplication
- * @Description 订单管理启动
+ * @Description 首页管理启动
  * @Author yuyu
  * @Date 2019/3/18 13:08
  * @Version 1.0
